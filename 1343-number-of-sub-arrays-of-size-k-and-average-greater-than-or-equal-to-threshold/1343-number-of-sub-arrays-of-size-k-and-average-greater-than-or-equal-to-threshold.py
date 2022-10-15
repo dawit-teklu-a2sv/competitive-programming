@@ -3,7 +3,6 @@ class Solution:
         i,j = 0, k
         total = sum(arr[:k])
         output = 1 if total / k >= threshold else 0
-        print(f"output {output}")
         while j < len(arr):
             total += (arr[j] - arr[i])
             if total/ k >= threshold:
