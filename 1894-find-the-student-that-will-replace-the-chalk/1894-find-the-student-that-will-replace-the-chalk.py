@@ -8,6 +8,7 @@ class Solution:
                 return i 
             else:
                 k -= chalk[i]
+        return -1
       
     
                 
