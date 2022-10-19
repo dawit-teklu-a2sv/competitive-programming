@@ -6,7 +6,6 @@ class Solution:
         
         for i in range(len(nums)):
             count[nums[i]] += 1
-        print(count)
         for j in range(1,len(count)):
             count[j] += count[j-1]
         for i in range(len(res)):
