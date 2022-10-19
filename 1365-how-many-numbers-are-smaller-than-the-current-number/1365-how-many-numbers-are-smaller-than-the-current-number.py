@@ -1,10 +1,12 @@
 class Solution:
     def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
-        count = [0] * 500
+        sortedNums = sorted(nums,reverse=True)
+        count = [0] * ( len(nums) + sortedNums[0])
         res = [0] * len(nums)
         
         for i in range(len(nums)):
             count[nums[i]] += 1
+        print(count)
         for j in range(1,len(count)):
             count[j] += count[j-1]
         for i in range(len(res)):
