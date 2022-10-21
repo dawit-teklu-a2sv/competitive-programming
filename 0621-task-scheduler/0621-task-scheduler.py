@@ -4,7 +4,12 @@ class Solution:
         #minmize idle time
         #O(m * n) where m is size of tasks and n is idle time
         
-        count = Counter(tasks)
+        count = {}
+        for i in tasks:
+            if i in count:
+                count[i] += 1
+            else:
+                count[i] = 1
         maxHeap = [-c for c in count.values()]
         q = deque() #includes [count, time]
         time = 0
