@@ -3,10 +3,8 @@ class Solution:
         queue = deque([x for x in range(n,0,-1)])
         
         while len(queue) > 1:
-            i = k 
-            while i > 1:
+            for  i in range(1,k):
                 queue.appendleft(queue.pop())
-                i -= 1
             queue.pop()
             
         return queue.pop()
