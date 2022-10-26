@@ -12,15 +12,13 @@ class Solution:
             int_list.append(current.val)
             current = current.next
             
-        d = {}
+        output = [0] * len(int_list)
         stack = []
         for i,item in enumerate(int_list):
             while stack and int_list[stack[-1]] < item:
-                d[stack.pop()] = item
+                output[stack.pop()] = item
             stack.append(i)
-        for i in range(len(int_list)):
-            int_list[i] = d.get(i,0)
             
-        return int_list
+        return output
                 
         
