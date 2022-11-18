@@ -4,15 +4,18 @@ class Solution:
         left,right = 0,len(tokens)-1
         score = 0
         while left <= right:
-            if power >= tokens[left]:
+            if tokens[left] <= power:
                 score += 1
                 power -= tokens[left]
                 left += 1
+            elif tokens[left] > power and score > 0 and left != right:
+                score -= 1
+                power += tokens[right]
+                right -= 1
             else:
-                if (power + tokens[right] >= tokens[left] and score != 0 and right != left):
-                    score -= 1
-                    power += tokens[right]
-                    right -= 1 
-                else:
-                    break 
+                left += 1
+                
         return score
+                 
+            
+        
