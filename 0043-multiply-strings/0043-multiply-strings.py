@@ -7,7 +7,7 @@ class Solution:
         res = [0] * (m+n)
         for i in range(m):
             for j in range(n):
-                digit = int(num1[i]) * int(num2[j])
+                digit = (ord(num1[i]) - ord('0')) * (ord(num2[j]) - ord('0'))
                 res[i+j] += digit
                 res[i+j+1] += (res[i+j]//10)
                 res[i+j] = res[i+j] % 10
