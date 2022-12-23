@@ -1,24 +1,26 @@
 class Solution:
-    # def countPairs(self, deliciousness: List[int]) -> int:
-    #     dicts = {}
-    #     count = 0
-    #     for i in deliciousness:
-    #         for j in range(22):
-    #             if (2**j - i) in dicts:
-    #                 count += dicts[(2**j) - i ]
-    #         dicts[i] = 1 + dicts.get(i,0)
-    #     return count % ((10**7) + 9)    
-    def countPairs(self, deliciousness: List[int]) -> int:
-        dicts={}
-        count=0
-        for i in deliciousness:
-            if len(dicts)==0:
-                dicts[i]=0
-            for j in range(22):
-                if (2**j)-i in dicts:
-                    count+=dicts[(2**j)-i]  
-            if i not in dicts:
-                dicts[i]=1
-            elif i in dicts or dicts[i]==0:
-                dicts[i]+=1  
-        return count % ((10**9)+7) 
+ def countPairs(self, deliciousness):
+        """
+        Given numbers are in range of 0 and 2^20.
+        Max sum must be under 2^21 (reason: 2^20 +2^20 = 2^21)
+        """
+        # O(22N)
+        # pre computing powers of 2 for saving time
+        powers_of_2 = [2**i for i in range(22)]
+        
+        # for every number check if its power_of_2 - itself exists
+        
+        c = Counter() # to keep track of frequency
+        ans = 0
+        for d in deliciousness:
+            # doing this before incremeting value count
+            # because we dont want to do increments twice.
+            # example in (1,3) there is only one way
+            # but we want to the find the way when the pointer is at 3
+            # and not at 1.
+            for pw in powers_of_2:
+                ans += c[pw-d]
+            # increment value frequency
+            c[d] += 1
+        # return result
+        return ans % ((10**9) + 7)
