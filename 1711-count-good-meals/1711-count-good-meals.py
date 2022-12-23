@@ -13,11 +13,6 @@ class Solution:
         c = Counter() # to keep track of frequency
         ans = 0
         for d in deliciousness:
-            # doing this before incremeting value count
-            # because we dont want to do increments twice.
-            # example in (1,3) there is only one way
-            # but we want to the find the way when the pointer is at 3
-            # and not at 1.
             for pw in powers_of_2:
                 ans += c[pw-d]
             # increment value frequency
