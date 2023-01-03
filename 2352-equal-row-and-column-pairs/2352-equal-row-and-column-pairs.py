@@ -1,5 +1,6 @@
 class Solution:
     def equalPairs(self, grid: List[List[int]]) -> int:
+        # tracking every row and every item put them to separate map and compare them
         length = len(grid)
         rows = {}
         columns = {}
