@@ -15,9 +15,6 @@ class Solution:
                 temp += str(grid[j][i]) + str(j)
             columns[temp] = 1 + columns.get(temp,0)
         count = 0
-        print(rows)
-        print(columns)
-        
         for key,value in rows.items():
             if key in columns:
                 count += value * columns[key]
