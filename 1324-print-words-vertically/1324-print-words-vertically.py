@@ -1,22 +1,12 @@
 class Solution:
     def printVertically(self, s: str) -> List[str]:
-        # temp_array = s.split() #holds string s after spliting 
-        # longest_length = len(temp_array[0]) #marks the length of the output array to be returned
-        # index = -float('inf')
-        # for i in range(1,len(temp_array)):
-        #     if len(temp_array[i]) > longest_length:
-        #         longest_length = len(temp_array[i])
-        #         index = i
-        # output = [''] * longest_length # output array
-        # for item in temp_array:
-        #     for i in range(len(item)):
-        #         output[i] += item[i]
-        # print(output
-        # if index != -float('inf'):
-        #     output[len(output)-1] = f"{'' * index}{temp_array[index][-1]}"
-        # print(output)
+        #splitting the input array
+        # get the longest item's length and initialize the output 2d array based on the longest length        temp_array = s.split()
+        # transpose the 2d array join them and append to the output array
+        #time complexity O(n Xm)
+        # space complexity O(n)
         temp_array = s.split()
-        longest_len = len(temp_array[0])
+        longest_len = len(temp_array[0]) 
         for item in temp_array:
             if len(item) > longest_len:
                 longest_len = len(item)
