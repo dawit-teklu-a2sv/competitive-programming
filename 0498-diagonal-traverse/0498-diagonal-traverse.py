@@ -1,39 +1,22 @@
 class Solution:
     def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m = len(mat)
-        n = len(mat[0])
-        output = [0] * (m * n)
-        row,col = 0,0
-        i = 0
-        up = True # for tracking up and down movments
         
-        while (row < m and col < n):
-            if up:
-                while row > 0 and col < n-1:
-                    output[i] = mat[row][col]
-                    col += 1
-                    row -= 1
-                    i += 1
-                output[i] = mat[row][col]
-                i += 1
-                if col == n-1:
-                    row += 1
-                else:
-                    col += 1
-                    
+        temp = defaultdict(list)
+        for i in range(len(mat)):
+            for j in range(len(mat[0])):
+                temp[i+j].append((j,mat[i][j]))
+        d = {}
+        for key,value in temp.items():
+            d[key] = sorted(value,key=lambda x:x[0])
+        print(d)
+        output = []
+        for key,value in d.items():
+            if key % 2 == 1:
+                for j in range(len(value)-1,-1,-1):
+                    output.append(value[j][1])
             else:
-                while col > 0 and row < m-1:
-                    output[i] = mat[row][col]
-                    row += 1
-                    col -= 1
-                    i += 1
-                output[i] = mat[row][col]
-                i += 1
-                if row == m-1:
-                    col += 1
-                else:
-                    row += 1
-            up = not up
+                for j in range(len(value)):
+                    output.append(value[j][1])
         return output
                 
                 
