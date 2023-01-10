@@ -3,7 +3,7 @@ class DataStream:
     def __init__(self, value: int, k: int):
         self.value = value
         self.k = k 
-        self.lastEqualValues = 0
+        self.lastEqualValues = 0 # to track the number of items equal the given value
         self.stream = []
         
     def consec(self, num: int) -> bool:
