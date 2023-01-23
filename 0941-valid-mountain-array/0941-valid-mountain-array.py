@@ -1,8 +1,10 @@
 class Solution:
     def validMountainArray(self, arr: List[int]) -> bool:
-        increasing_index = 0
-        decreasing_index = 0
-        
+        #get the last increasing index and check wheter the items after last index are
+        # decreasing or not 
+        # Time complexity O(n)
+        # Space Complexity O(1)
+        increasing_index = 0        
         for i in range(1,len(arr)):
             if arr[i] > arr[i-1]:
                 increasing_index += 1 
