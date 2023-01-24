@@ -3,9 +3,12 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        left = 0
-        for right in range(len(nums)):
-            if nums[right] != 0:
-                nums[left],nums[right] = nums[right],nums[left]
-                left += 1
+        seeker,holder = 0,0
+        
+        while seeker < len(nums):
+            if nums[seeker] != 0:
+                nums[seeker],nums[holder] = nums[holder],nums[seeker]
+                holder += 1
+            seeker += 1
+                
         
