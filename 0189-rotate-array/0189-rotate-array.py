@@ -3,12 +3,15 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        k = k % len(nums) # if k == 0 or k == len(nums) we need not to do nothing.
-        def flip(start,end):
+        k = k % len(nums)
+        if k > len(nums):
+            return
+        def reverse(start,end):
             while start < end:
                 nums[start],nums[end] = nums[end],nums[start]
                 start += 1
                 end -= 1
-        flip(0,len(nums)-1)
-        flip(0,k-1)
-        flip(k,len(nums)-1)
+        length = len(nums)
+        reverse(0,length-1)
+        reverse(0,k-1)
+        reverse(k,length-1)
