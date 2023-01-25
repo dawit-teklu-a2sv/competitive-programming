@@ -1,15 +1,15 @@
 class Solution:
     def partitionLabels(self, s: str) -> List[int]:
+        last_index = [0] * 26
+        for index,item in enumerate(s):
+            last_index[ord(item)-ord('a')] = index
 
         output = []
-        last_indices = [0] * 26
+        right = 0
+        left = 0
         for i in range(len(s)):
-            last_indices[ord(s[i])-ord('a')] = i 
-        start = 0
-        end = 0
-        for i in range(len(s)):
-            end = max(last_indices[ord(s[i])-ord('a')],end)
-            if (i == end):
-                output.append(end-start + 1)
-                start = end + 1
+            right = max(last_index[ord(s[i])-ord('a')],right)
+            if right == i:
+                output.append(right-left + 1)
+                left = i + 1
         return output
