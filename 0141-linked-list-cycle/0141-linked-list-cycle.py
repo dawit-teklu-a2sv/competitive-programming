@@ -10,18 +10,21 @@ class Solution(object):
         :type head: ListNode
         :rtype: bool
         """
-#         slow = head
-#         fast = head
-        
-#         while fast and fast.next:
-#             slow = slow.next
-#             fast = fast.next.next
-#             if slow == fast:
-#                 break 
-#         while head != slow:
-#             slow = slow.next
-#             head = head.next
-#         return  head if head else False
+        slow = head
+        fast = head
+        cycle = False
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            if slow == fast:
+                cycle = True
+                break 
+        if not cycle:
+            return False
+        while head != slow:
+            slow = slow.next
+            head = head.next
+        return  head
         output = set()
         temp = head
         while temp and temp.next:
