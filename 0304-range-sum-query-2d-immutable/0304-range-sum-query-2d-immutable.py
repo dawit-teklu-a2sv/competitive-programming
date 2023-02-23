@@ -1,27 +1,25 @@
 class NumMatrix:
 
     def __init__(self, matrix: List[List[int]]):
-        row,col = len(matrix),len(matrix[0])
-        
-        self.sumMat = [[0] * (col + 1) for i in range(row + 1)]
-        
-        for r in range(row):
-            prefix = 0
-            for c in range(col):
-                prefix += matrix[r][c]
-                above = self.sumMat[r][c+1]
-                self.sumMat[r+1][c+1] = prefix + above
+        self.matrix = matrix
+        for r in range(len(matrix)):
+            self.matrix[r].insert(0,0)
             
+        zeros = [0] * len(self.matrix[0])
+        self.matrix.insert(0,zeros)
+        
+        for r in range(1,len(self.matrix)):
+            for c in range(1,len(self.matrix[0])):
+                self.matrix[r][c] += (self.matrix[r][c-1] + self.matrix[r-1][c] - self.matrix[r-1][c-1])
+                
 
-        
     def sumRegion(self, row1: int, col1: int, row2: int, col2: int) -> int:
-        r1,c1,r2,c2 = row1 + 1,col1 + 1,row2 + 1, col2 + 1 
-        bottomRight = self.sumMat[r2][c2]
-        above = self.sumMat[r1-1][c2]
-        left = self.sumMat[r2][c1-1]
-        topLeft = self.sumMat[r1-1][c1-1]
-        return bottomRight - above -left + topLeft
-        
+        bottom_right = self.matrix[row2+1][col2+1]
+        bottom_left = self.matrix[row2+1][col1]
+        top_right = self.matrix[row1][col2+1]
+        top_left = self.matrix[row1][col1]
+        curr_sum = bottom_right - bottom_left - top_right + top_left
+        return curr_sum
         
 
 
