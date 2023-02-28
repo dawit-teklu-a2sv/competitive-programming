@@ -3,7 +3,7 @@ class DataStream:
     def __init__(self, value: int, k: int):
         self.k = k
         self.value = value
-        self.stream = []
+        self.stream = deque()
         self.equalValues = 0
         
 
@@ -12,7 +12,7 @@ class DataStream:
         if num == self.value:
             self.equalValues += 1
         if len(self.stream) > self.k:
-            temp = self.stream.pop(0)
+            temp = self.stream.popleft()
             if temp == self.value:
                 self.equalValues -= 1
         return self.equalValues >= self.k
