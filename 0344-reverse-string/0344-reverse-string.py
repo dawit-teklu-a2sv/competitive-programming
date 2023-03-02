@@ -1,15 +1,12 @@
 class Solution:
+    def reverse(self,s,i,n):
+        if i >= n//2:
+            return 
+        s[i],s[n-i-1] = s[n-i-1],s[i]
+        self.reverse(s,i+1,n)
     def reverseString(self, s: List[str]) -> None:
         """
         Do not return anything, modify s in-place instead.
         """
-        left,right = 0,len(s)-1
-        
-        while left < right:
-            temp = s[left]
-            s[left] = s[right]
-            s[right] = temp
-            left += 1
-            right -= 1
-            
+        self.reverse(s,0,len(s))
         
