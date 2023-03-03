@@ -10,14 +10,14 @@ class Solution:
             
     def shipWithinDays(self, weights: List[int], days: int) -> int:
         
-        left = max(weights)
-        right = sum(weights)
+        left = max(weights)  - 1
+        right = sum(weights) + 1
         
-        while right > left:
+        while right > left + 1:
             mid = left + (right - left) // 2
             if self.isPossible(weights,days,mid):
                 right = mid 
             else:
-                left = mid + 1
-        return left 
+                left = mid 
+        return right 
         
