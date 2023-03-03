@@ -12,7 +12,7 @@ class Solution:
         # brute force approach 
         # min_i = min(piles)
         # max_i = max(piles)
-        # i = 1
+        # i = min_i
         # while i <= max_i:
         #     hours = 0
         #     for p in piles:
@@ -24,18 +24,15 @@ class Solution:
         #     i += 1
         # return i
         
-        left = 1
-        # right = (len(piles) * h) + 1
-        right = max(piles) 
-        
-        while right >= left:
+        left = 0
+        right = max(piles) + 1
+
+        while right > left + 1:
             mid = left + (right - left) // 2
             if self.isPossible(piles,h,mid):
-                right = mid - 1
+                right = mid
             else:
-                left = mid + 1
-        return left 
-        
-        
+                left = mid 
+        return right
             
         
