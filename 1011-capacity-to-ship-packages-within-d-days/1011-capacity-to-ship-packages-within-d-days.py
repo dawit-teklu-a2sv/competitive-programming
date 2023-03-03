@@ -6,7 +6,6 @@ class Solution:
                 need += 1
                 current = 0
             current += weight
-        print(need,mid)
         return need <= k
             
     def shipWithinDays(self, weights: List[int], days: int) -> int:
@@ -17,7 +16,6 @@ class Solution:
         while right > left:
             mid = left + (right - left) // 2
             if self.isPossible(weights,days,mid):
-                print(mid)
                 right = mid 
             else:
                 left = mid + 1
