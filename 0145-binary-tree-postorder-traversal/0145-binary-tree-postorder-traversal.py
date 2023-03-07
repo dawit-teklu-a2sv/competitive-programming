@@ -9,9 +9,9 @@ class Solution:
         return self.dfs(root,[])
     def dfs(self,root,output):
         if root == None:
-            return output
-        output = self.dfs(root.left,output)
-        output = self.dfs(root.right,output)
+            return 
+        self.dfs(root.left,output)
+        self.dfs(root.right,output)
         output.append(root.val)
         return output
         
