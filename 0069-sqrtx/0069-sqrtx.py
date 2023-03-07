@@ -3,20 +3,20 @@ class Solution:
         if x == 0:
             return 0
         
-        left = 1
-        right = x 
+        left = 0
+        right = x + 1
         
-        while left <= right:
+        while left < right -1:
             mid = left + (right - left) // 2
             
             temp = x // mid
             
-            if temp == mid:
-                return mid
-            elif mid > temp:
-                right = mid -1
+            # if temp == mid:
+            #     return mid
+            if mid > temp:
+                right = mid 
             else:
-                left = mid + 1
-        return right
+                left = mid
+        return left
         
         
