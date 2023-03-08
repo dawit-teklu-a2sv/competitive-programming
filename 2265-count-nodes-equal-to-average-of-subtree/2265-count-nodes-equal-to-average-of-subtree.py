@@ -12,7 +12,6 @@ class Solution:
             return [0,0]
         left = self.averageOfSubtreeHelper(root.left)
         right = self.averageOfSubtreeHelper(root.right)
-        print(left,right,root.val)
         currSum = left[0] + right[0] + root.val
         currCount = left[1] + right[1] + 1
         
