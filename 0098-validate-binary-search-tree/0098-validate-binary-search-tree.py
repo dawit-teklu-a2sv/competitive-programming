@@ -6,6 +6,7 @@
 #         self.right = right
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
+        #Inorder traversal
         stack = []
         curr = root
         output = []
