@@ -20,6 +20,7 @@ class Solution:
         return self.mergeTwoLists(left,right)
         
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        #Iterative approach
         dummy = ListNode()
         
         tail = dummy
@@ -37,16 +38,17 @@ class Solution:
         if list2:
             tail.next = list2
         return dummy.next
-#         if not list1:
-#             return list2
-#         if not list2:
-#             return list1
+    #recursive approach
+        if not list1:
+            return list2
+        if not list2:
+            return list1
         
-#         if list1.val < list2.val:
-#             list1.next = self.mergeTwoLists(list1.next,list2)
-#             return list1
+        if list1.val < list2.val:
+            list1.next = self.mergeTwoLists(list1.next,list2)
+            return list1
              
-#         list2.next = self.mergeTwoLists(list1,list2.next)
-#         return list2
+        list2.next = self.mergeTwoLists(list1,list2.next)
+        return list2
         
-#         return self.mergeTwoLists(list1,list2)
+        return self.mergeTwoLists(list1,list2)
