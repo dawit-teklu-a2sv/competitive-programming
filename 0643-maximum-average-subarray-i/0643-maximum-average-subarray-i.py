@@ -7,7 +7,6 @@ class Solution:
         max_sum = current_sum
         
         left = 0
-        
         for i in range(k,len(nums)):
             current_sum = current_sum + nums[i] - nums[left]
             left += 1
