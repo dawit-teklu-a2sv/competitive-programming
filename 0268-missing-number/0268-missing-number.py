@@ -8,9 +8,7 @@ class Solution:
                 i += 1
             else:
                 nums[i],nums[temp] = nums[temp],nums[i]
-        print(nums)
         for i,item in enumerate(nums):
-            print(i)
             if i != item:
                return i
         return n
