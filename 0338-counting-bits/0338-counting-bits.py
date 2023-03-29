@@ -6,7 +6,7 @@ class Solution:
             count = 0
             while i > 0:
                 count += i & 1
-                i //=2
+                i >>= 1
             output.append(count)
         return output
                         
