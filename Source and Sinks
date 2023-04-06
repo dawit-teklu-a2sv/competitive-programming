@@ -1,0 +1,24 @@
+from collections import defaultdict
+n = int(input())
+graph = []
+for i in range(n):
+    temp = list(map(int, input().split()))
+    graph.append(temp)
+in_degrees = defaultdict(int)
+out_degreees = defaultdict(int)
+
+for i in range(n):
+    for j in range(n):
+        if graph[i][j]:
+            in_degrees[j+1] += 1
+            out_degreees[i+1] += 1
+sources = []
+sinks = []
+for i in range(1, n+1):
+    if not in_degrees[i]:
+        sources.append(i)
+for i in range(1, n+1):
+    if not out_degreees[i]:
+        sinks.append(i)
+print(len(sources), *sources)
+print(len(sinks), *sinks)
