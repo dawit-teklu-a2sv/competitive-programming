@@ -1,0 +1,16 @@
+from collections import defaultdict
+n = int(input())
+
+graph = []
+
+for _ in range(n):
+    graph.append(list(map(int, input().split())))
+adjacency_list = defaultdict(list)
+
+for i, node in enumerate(graph):
+    for j, vertex in enumerate(node):
+        if vertex:
+            adjacency_list[i+1].append(j+1)
+
+for _, value in adjacency_list.items():
+    print(len(value), *value)
