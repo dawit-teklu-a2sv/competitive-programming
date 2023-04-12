@@ -1,17 +1,16 @@
 class Solution:
     def distinctPrimeFactors(self, nums: List[int]) -> int:
-
-        seen, primes = set(), {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31} 
-         
+        
+        s = set()
+        
+        def processNum(n):
+            for i in range(2,n+1):
+                if n % i == 0:
+                    while n % i == 0:
+                        n //= i
+                    s.add(i)
+                if n == 1:
+                    return 
         for num in nums:
-            for p in primes:
-                    
-                r = num%p
-                if p not in seen and not r: seen.add(p)
-                    
-                while not r:
-                    num//= p
-                    r = num%p
-            if num > 1: seen.add(num) 
-
-        return len(seen)
+            processNum(num)
+        return len(s)
