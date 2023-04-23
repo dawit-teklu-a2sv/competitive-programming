@@ -1,0 +1,43 @@
+<h2><a href="https://leetcode.com/problems/sum-root-to-leaf-numbers/">129. Sum Root to Leaf Numbers</a></h2><h3>Medium</h3><hr><div><p>You are given the <code>root</code> of a binary tree containing digits from <code>0</code> to <code>9</code> only.</p>
+
+<p>Each root-to-leaf path in the tree represents a number.</p>
+
+<ul>
+	<li>For example, the root-to-leaf path <code>1 -&gt; 2 -&gt; 3</code> represents the number <code>123</code>.</li>
+</ul>
+
+<p>Return <em>the total sum of all root-to-leaf numbers</em>. Test cases are generated so that the answer will fit in a <strong>32-bit</strong> integer.</p>
+
+<p>A <strong>leaf</strong> node is a node with no children.</p>
+
+<p>&nbsp;</p>
+<p><strong class="example">Example 1:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/02/19/num1tree.jpg" style="width: 212px; height: 182px;">
+<pre class="button-container"><button type="button" class="a2sv-button"><span>a2svify</span></button><button type="button" class="a2sv-button"><span>a2svify</span></button><button type="button" class="a2sv-button"><span>a2svify</span></button><button type="button" class="a2sv-button"><span>a2svify</span></button><button type="button" class="a2sv-button"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="dp7af"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="fszts7"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="fkcpoq"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="j3vgnn"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="utgoa"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="lt1kwnn"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="ylv53p"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="k1klnxk"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="a13yvh"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="t5smyg"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="5v638k"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="l9t2b"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="62po8"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="ug1hlm"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="wjberb"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="ld2zeb"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="m1dy08"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="868i"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="ly17bn"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="p5zcx6"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="g0aovb"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="m4woa"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="svnpce"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="yvy85o"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="c87v9o"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="hp1sek"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="onw76h"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="of0epw"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="d279s"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="dkyeyj"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="fc4tpt"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="fx5s2"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="zvgscl"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="6wal4a"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="s64bdl"><span>a2svify</span></button><strong>Input:</strong> root = [1,2,3]
+<strong>Output:</strong> 25
+<strong>Explanation:</strong>
+The root-to-leaf path <code>1-&gt;2</code> represents the number <code>12</code>.
+The root-to-leaf path <code>1-&gt;3</code> represents the number <code>13</code>.
+Therefore, sum = 12 + 13 = <code>25</code>.
+</pre>
+
+<p><strong class="example">Example 2:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/02/19/num2tree.jpg" style="width: 292px; height: 302px;">
+<pre class="button-container"><button type="button" class="a2sv-button"><span>a2svify</span></button><button type="button" class="a2sv-button"><span>a2svify</span></button><button type="button" class="a2sv-button"><span>a2svify</span></button><button type="button" class="a2sv-button"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="es6npg"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="2vhx1e"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="cp51ai"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="wdrkka"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="dlqtb"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="oa97k3"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="falppo"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="67hj1k"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="zkt0sp"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="s0qk2"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="se9jlk"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="g1adj"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="l1san"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="beclda"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="665e1g"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="8ku478"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="44nx8u"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="dukrsw"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="ne5bv"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="kbttww"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="5mbba"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="ecc8ln"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="e1kydh"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="ks0wa"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="eqejq"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="3xb9oj"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="8zx3uw"><span>a2svify</span></button><button type="button" class="a2sv-button" fdprocessedid="wwfqi"><span>a2svify</span></button><strong>Input:</strong> root = [4,9,0,5,1]
+<strong>Output:</strong> 1026
+<strong>Explanation:</strong>
+The root-to-leaf path <code>4-&gt;9-&gt;5</code> represents the number 495.
+The root-to-leaf path <code>4-&gt;9-&gt;1</code> represents the number 491.
+The root-to-leaf path <code>4-&gt;0</code> represents the number 40.
+Therefore, sum = 495 + 491 + 40 = <code>1026</code>.
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li>The number of nodes in the tree is in the range <code>[1, 1000]</code>.</li>
+	<li><code>0 &lt;= Node.val &lt;= 9</code></li>
+	<li>The depth of the tree will not exceed <code>10</code>.</li>
+</ul>
+</div>
