@@ -1,37 +1,32 @@
 class Solution:
     def updateMatrix(self, mat: List[List[int]]) -> List[List[int]]:
-        m = len(mat)
-        n = len(mat[0])
-        ans = [[0]* n for _ in range(m)]
+        n = len(mat)
+        m = len(mat[0])
         directions = [[1,0],[-1,0],[0,1],[0,-1]]
         queue = deque()
         visited = set()
+        result = [[0] * m for _ in  range(n)]
         
-        for r in range(m):
-            for c in range(n):
-                if not mat[r][c]:
-                    queue.append([r,c])
-                    visited.add((r,c))
+        for i in range(n):
+            for j in range(m):
+                if mat[i][j] == 0:
+                    queue.append([i,j])
                     
-        dist = 0
+        distance = 0
         
         while queue:
-            
             for _ in range(len(queue)):
                 r,c = queue.popleft()
-                
                 if mat[r][c]:
-                    ans[r][c] = dist
+                    result[r][c] = distance
                     
-                for dR,dC in directions:
-                    newR = r + dR
-                    newC = c + dC
+                for dr,dc in directions:
+                    nr = r + dr
+                    nc = c + dc
                     
-                    if 0<=newR<m and 0<=newC<n and (newR,newC) not in visited:
-                        queue.append([newR,newC])
-                        visited.add((newR,newC))
-            dist += 1
-        return ans
-                    
-                
-            
+                    if 0 <= nr < n and 0 <= nc < m and (nr,nc) not in visited:
+                        visited.add((nr,nc))
+                        queue.append([nr,nc])
+            distance += 1
+        return result
+    
