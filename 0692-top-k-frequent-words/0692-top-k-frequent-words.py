@@ -8,7 +8,7 @@ class Solution:
         words_count = Counter(words)
         words_count = [(word,count) for word,count in words_count.items()]
         words_count.sort(key = lambda i:i[0])
-        # heapq.heapify(words_count)
+        heapq.heapify(words_count)
         # print(words_count)
         result = [i[0] for i in heapq.nlargest(k,words_count,key=lambda i:i[1])]
         print(result)
