@@ -18,9 +18,9 @@ class Solution:
                     return False
             colors[node] = 2
             return True
-        output = 0
+        
         for i in range(numCourses):
-            if dfs(i):
-                output += 1
-        return output == numCourses
+            if not dfs(i):
+                return False
+        return True
         
