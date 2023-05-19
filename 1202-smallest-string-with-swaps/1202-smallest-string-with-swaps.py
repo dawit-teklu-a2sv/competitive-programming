@@ -2,8 +2,6 @@ class UnionFind:
     def __init__(self,size):
         self.root = [i for i in range(size)]
         self.size = [1] * (size)
-
-        
     
     def find(self,x):
         if x == self.root[x]:
@@ -31,7 +29,6 @@ class Solution:
         
         for u,v in pairs:
             uf.union(u,v)
-        print(uf.root)
         d = defaultdict(list)
         
         for i in range(n):
@@ -45,4 +42,3 @@ class Solution:
             output += d[root].pop()
         
         return output
-        
