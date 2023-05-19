@@ -11,7 +11,7 @@ class UnionFind:
         parent = self.find(self.root[x])
         self.root[x] = parent
         return self.root[x]
-    
+
     def union(self,x,y):
         xparent = self.find(x)
         yparent = self.find(y)
@@ -31,12 +31,11 @@ class Solution:
         
         for u,v in pairs:
             uf.union(u,v)
-            
+        print(uf.root)
         d = defaultdict(list)
         
         for i in range(n):
-            uf.find(i)
-            root = uf.root[i]
+            root = uf.find(i)
             d[root].append(s[i])
         for key,value in d.items():
             value.sort(reverse=True)
