@@ -39,6 +39,7 @@ class Solution:
                     d[email] = i 
                 else:
                     uf.union(i,d[email])
+                    
         components = defaultdict(list)
         for key in d:
             group = d[key]
