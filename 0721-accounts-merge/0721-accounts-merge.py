@@ -29,29 +29,27 @@ class UnionFind:
 class Solution:
     def accountsMerge(self, accounts: List[List[str]]) -> List[List[str]]:
         n = len(accounts)
-        uf = UnionFind(n)
         d = {}
+        uf = UnionFind(n)
         for i in range(n):
             for j in range(1,len(accounts[i])):
                 email = accounts[i][j]
-                name = accounts[i][0]
-                if email not in d:
-                    d[email] = i 
-                else:
+                if email in d:
                     uf.union(i,d[email])
-                    
+                else:
+                    d[email] = i 
         components = defaultdict(list)
-        for key in d:
-            group = d[key]
-            rep = uf.find(group)
-            components[rep].append(key)
-            
-        mergedAccounts = []
-        for key in components:
-            component = components[key]
-            component.sort()
-            component.insert(0,accounts[key][0])
-            mergedAccounts.append(component)
-        return mergedAccounts
+        for key,group in d.items():
+            parent = uf.find(group)
+            components[parent].append(key)
+        output = []
         
+        for key,value in components.items():
+            name = accounts[key][0]
+            value.sort()
+            value.insert(0,name)
+            output.append(value)
+        return output
+
+
         
