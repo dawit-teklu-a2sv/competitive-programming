@@ -7,19 +7,13 @@
 class Solution:
     def rob(self, root: Optional[TreeNode]) -> int:
         @cache
-        def solve(node):
+        def solve(node,canRob=True):
             if not node:
                 return 0
-            dontrob = solve(node.left) + solve(node.right)
-            rob = node.val
-            if node.left:
-                rob += solve(node.left.left) + solve(node.left.right)
-            if node.right:
-                rob += solve(node.right.left) + solve(node.right.right)
-            return max(dontrob,rob)
-            # dontrob = solve(node.left,True) + solve(node.right,True)
-            # rob = node.val + solve(node.left,False) + solve(node.right,False) if canRob else -1
-            # return max(dontrob,rob)
+            
+            rob = node.val + solve(node.left,False) + solve(node.right,False) if canRob else -1
+            dontrob = solve(node.left,True) + solve(node.right,True)
+            
+            return max(rob,dontrob)
         return solve(root)
-                
-
+        
