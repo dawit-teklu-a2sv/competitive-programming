@@ -1,5 +1,4 @@
 class Solution:
-
     def countSmaller(self, nums: List[int]) -> List[int]:
         count = [0 for i in range(len(nums))]
         for i in range(len(nums)):
