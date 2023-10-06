@@ -18,8 +18,8 @@ class Solution:
             probability *= -1
             if vertex == end_node:
                 return probability
-            # if probability < probabilities[vertex]:
-            #     continue
+            if probability < probabilities[vertex]:
+                continue
             for child,child_prob in graph[vertex]:
                 new_prob = probability * child_prob
                 if new_prob > probabilities[child]:
