@@ -29,4 +29,30 @@ class Solution:
         for query in queries:
             ans.append(query[0] in lookup[query[1]])
         return ans
+#Using floyd warshal 
+class Solution:
+    def checkIfPrerequisite(self, numCourses: int, prerequisites: List[List[int]], queries: List[List[int]]) -> List[bool]:
+        #using floyd warshall algorithm
+        courses = [[False]*numCourses for _ in range(numCourses)]
+        
+        for pre,course in prerequisites:
+            courses[pre][course] = True
+            
+        for k in range(numCourses):
+            for i in range(numCourses):
+                for j in range(numCourses):
+                    courses[i][j] = courses[i][j] or courses[i][k] and courses[k][j]
+        
+        output = []
+        for pre,course in queries:
+            output.append(courses[pre][course])
+            
+        return output
+            
+            
+    
+        
+        
+    
+        
             
