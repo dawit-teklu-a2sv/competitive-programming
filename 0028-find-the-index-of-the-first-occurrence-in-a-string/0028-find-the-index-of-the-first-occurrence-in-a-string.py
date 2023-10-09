@@ -12,13 +12,13 @@ class Solution:
             for ch in word:
                 hash += (a ** k) * (ord(ch)-ord('a')+1)
                 k -= 1
-            return hash 
+            return hash % mod
         def addLast(current_hash,ch):
             
-            return current_hash * a + (ord(ch)-ord('a') + 1)
+            return (current_hash * a + (ord(ch)-ord('a') + 1)) % mod
         
         def pollFirst(current_hash,ch):
-            return (current_hash)  - (a**(n_length-1) * (ord(ch)-ord('a') + 1 ))
+            return ((current_hash)  - (a**(n_length-1) * (ord(ch)-ord('a') + 1 )))%mod
             
         
         n_hash = getHash(needle)
@@ -28,13 +28,10 @@ class Solution:
         if n_hash == hay_hash:
             return 0
         for i in range(n_length,len(haystack)):
-            print(n_hash,hay_hash   )
             if n_hash == hay_hash:
                 return i - n_length
             hay_hash = pollFirst(hay_hash,haystack[i-n_length])
-            print("hay_hash",hay_hash)
             hay_hash = addLast(hay_hash,haystack[i])
-            print("hay_hash",hay_hash)
             
             
         if hay_hash == n_hash:
