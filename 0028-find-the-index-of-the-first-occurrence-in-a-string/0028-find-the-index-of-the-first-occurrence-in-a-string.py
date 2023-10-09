@@ -1,9 +1,47 @@
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
-        
-        ans = float('inf')
         if len(haystack) < len(needle):
             return -1
+        a = 27
+        mod = 10 ** 9 + 7
+        n_length = len(needle)
+        
+        def getHash(word):
+            hash = 0
+            k = len(word) - 1 
+            for ch in word:
+                hash += (a ** k) * (ord(ch)-ord('a')+1)
+                k -= 1
+            return hash 
+        def addLast(current_hash,ch):
+            
+            return current_hash * a + (ord(ch)-ord('a') + 1)
+        
+        def pollFirst(current_hash,ch):
+            return (current_hash)  - (a**(n_length-1) * (ord(ch)-ord('a') + 1 ))
+            
+        
+        n_hash = getHash(needle)
+        hay_hash = getHash(haystack[:n_length])
+        left  = 0
+
+        if n_hash == hay_hash:
+            return 0
+        for i in range(n_length,len(haystack)):
+            print(n_hash,hay_hash   )
+            if n_hash == hay_hash:
+                return i - n_length
+            hay_hash = pollFirst(hay_hash,haystack[i-n_length])
+            print("hay_hash",hay_hash)
+            hay_hash = addLast(hay_hash,haystack[i])
+            print("hay_hash",hay_hash)
+            
+            
+        if hay_hash == n_hash:
+            return len(haystack) - n_length
+        return -1
+                
+
         for i in range(len(haystack)):
             temp = i 
             count = 0
