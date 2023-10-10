@@ -2,6 +2,38 @@ class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
         if len(haystack) < len(needle):
             return -1
+        
+        #KMP Approach
+        m = len(needle)
+        lps = [0] * m 
+        i,j = 0,1
+        while  j < m:
+            if needle[i] == needle[j]:
+                lps[j] = i + 1
+                i += 1
+                j += 1
+            else:
+                if i == 0:
+                    j += 1
+                else:
+                    i = lps[i-1]
+                    
+        j,i = 0,0
+        print(lps)
+        while j < len(haystack):
+            if i == m - 1 and needle[i] == haystack[j]:
+                return j - i
+            if needle[i] == haystack[j]:
+                i += 1
+                j += 1
+            else:
+                if i == 0:
+                    j += 1
+                else:
+                    i = lps[i-1]
+      
+        return -1
+        #Rabin Carp Algorith
         a = 27
         mod = 10 ** 9 + 7
         n_length = len(needle)
@@ -33,7 +65,7 @@ class Solution:
             hay_hash = pollFirst(hay_hash,haystack[i-n_length])
             hay_hash = addLast(hay_hash,haystack[i])
             
-            
+        #Naive Approach
         if hay_hash == n_hash:
             return len(haystack) - n_length
         return -1
