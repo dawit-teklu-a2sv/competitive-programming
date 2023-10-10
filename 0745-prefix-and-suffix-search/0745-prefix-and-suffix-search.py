@@ -1,3 +1,5 @@
+
+#An Approach using two tries
 class Node:
     
     def __init__(self):
