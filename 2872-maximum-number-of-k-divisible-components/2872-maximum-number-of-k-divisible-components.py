@@ -19,7 +19,7 @@ class Solution:
                 
                 u = queue.popleft()
                 
-                p = graph[u][0] if u in graph and graph[u] else -1
+                p = graph[u][0] if  graph[u] else -1
                 
                 if p >= 0:
                     graph[p].remove(u)
