@@ -1,3 +1,6 @@
+#An apporoach using bfs like implementation by exploring from the leaf nods 
+# and going up to the root
+
 class Solution:
     def maxKDivisibleComponents(self, n: int, edges: List[List[int]], values: List[int], k: int) -> int:
         if n <= 1:
