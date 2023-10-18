@@ -16,7 +16,7 @@ class Solution:
             
             return dp[u]
             
-        for i in range(1,n+1):
+        for i in range(n+1):
             dfs(i)
             
         return max(dp)
